@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel Interior 3 View</title>
+
+    <style>
+      .carousel-wrapper {
+        max-width: 1200px;
+        margin: 50px auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      .carousel-track {
+        display: flex;
+        transition: transform 0.6s ease-in-out;
+      }
+
+      .carousel-item {
+        flex: 0 0 33.3333%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .carousel-item img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        border-radius: 12px;
+        display: block;
+      }
+
+      .nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        border: none;
+        padding: 12px 16px;
+        cursor: pointer;
+        border-radius: 50%;
+        font-size: 18px;
+        transition: 0.3s;
+      }
+
+      .nav-btn:hover {
+        background: rgba(0, 0, 0, 0.85);
+      }
+
+      .prev {
+        left: 15px;
+      }
+      .next {
+        right: 15px;
+      }
+
+      @media (max-width: 992px) {
+        .carousel-item {
+          flex: 0 0 50%;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .carousel-item {
+          flex: 0 0 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260205-031540_kitchen set 1.png"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260205-031540_kisi kisi penyekat.png"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260205-034944_mini bar black white premium.png"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260205-101307_bedroom 1.jpeg"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260205-101527_bedroom 2.jpeg"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260205-100920_bedroom front.jpeg"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260205-031540_bedroom set.png"
+          />
+        </div>
+      </div>
+
+      <button class="nav-btn prev" onclick="moveSlide(-1)">❮</button>
+      <button class="nav-btn next" onclick="moveSlide(1)">❯</button>
+    </div>
+
+    <script>
+      const track = document.getElementById('carouselTrack');
+      const items = document.querySelectorAll('.carousel-item');
+      const totalItems = items.length;
+
+      let index = 0;
+      let itemsPerView = getItemsPerView();
+
+      function getItemsPerView() {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 992) return 2;
+        return 3;
+      }
+
+      function moveSlide(step) {
+        itemsPerView = getItemsPerView();
+        const maxIndex = totalItems - itemsPerView;
+
+        index += step;
+        if (index < 0) index = maxIndex;
+        if (index > maxIndex) index = 0;
+
+        const translateX = (100 / itemsPerView) * index;
+        track.style.transform = `translateX(-${translateX}%)`;
+      }
+
+      window.addEventListener('resize', () => {
+        itemsPerView = getItemsPerView();
+        moveSlide(0);
+      });
+
+      setInterval(() => {
+        moveSlide(1);
+      }, 5000);
+    </script>
+  </body>
+</html>
