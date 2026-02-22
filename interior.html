@@ -11,78 +11,61 @@
     <style>
       .carousel-wrapper {
         max-width: 1200px;
-
         margin: 50px auto;
-
         position: relative;
-
         overflow: hidden;
-
         border-radius: 16px;
-
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
       }
 
       .carousel-track {
         display: flex;
-
         transition: transform 0.6s ease-in-out;
       }
 
       .carousel-item {
         flex: 0 0 33.3333%;
-
         padding: 10px;
-
         box-sizing: border-box;
       }
 
       .carousel-item img {
         width: 100%;
-
         height: 320px;
-
         object-fit: cover;
-
         border-radius: 12px;
-
         display: block;
       }
 
       .nav-btn {
         position: absolute;
-
-        top: 50%;
-
-        transform: translateY(-50%);
-
-        background: rgba(0, 0, 0, 0.6);
-
+        top: 0;
+        height: 100%;
+        width: 60px;
+        background: rgba(0, 0, 0, 0.35);
         color: #fff;
-
         border: none;
-
-        padding: 12px 16px;
-
         cursor: pointer;
-
-        border-radius: 50%;
-
-        font-size: 18px;
-
+        font-size: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         transition: 0.3s;
+        z-index: 2;
       }
 
       .nav-btn:hover {
-        background: rgba(0, 0, 0, 0.85);
+        background: rgba(0, 0, 0, 0.6);
       }
 
       .prev {
-        left: 15px;
+        left: 0;
+        border-radius: 16px 0 0 16px;
       }
 
       .next {
-        right: 15px;
+        right: 0;
+        border-radius: 0 16px 16px 0;
       }
 
       @media (max-width: 992px) {
@@ -100,8 +83,24 @@
   </head>
 
   <body>
+    <!-- KITCHEN SET -->
     <div class="carousel-wrapper">
       <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-010835_island set.png"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-010835_kitchen set.png"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-010835_kitchen set island 1.png"
+          />
+        </div>
         <div class="carousel-item">
           <img
             src="https://dongkrakusaha.com/gambarbebas/1526720260220-110808_kitchen set 5.png"
@@ -161,60 +160,61 @@
       <button class="nav-btn next" onclick="moveSlide(1)">❯</button>
     </div>
 
+    <!-- INTERIOR -->
     <div class="carousel-wrapper">
       <div class="carousel-track" id="carouselTrack2">
         <!-- copy item yang sama -->
         <div class="carousel-item">
           <img
-            src="https://dongkrakusaha.com/gambarbebas/1526720260220-110808_kitchen set 5.png"
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-010821_credenza 2.png"
           />
         </div>
 
         <div class="carousel-item">
           <img
-            src="https://dongkrakusaha.com/gambarbebas/1526720260220-110808_kitchen set 6.png"
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-010821_credenza 1.png"
           />
         </div>
 
         <div class="carousel-item">
           <img
-            src="https://dongkrakusaha.com/gambarbebas/1526720260220-110808_kitchen set 4.png"
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-010835_kamar 2.png"
           />
         </div>
 
         <div class="carousel-item">
           <img
-            src="https://dongkrakusaha.com/gambarbebas/1526720260220-110808_kitchen set 7.png"
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-010835_lemari 1.png"
           />
         </div>
 
         <div class="carousel-item">
           <img
-            src="https://dongkrakusaha.com/gambarbebas/1526720260220-110808_kitchen set 3.png"
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-010835_kamar 1.png"
           />
         </div>
 
         <div class="carousel-item">
           <img
-            src="https://dongkrakusaha.com/gambarbebas/1526720260205-031540_kitchen set 1.png"
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-010843_taman minimalis 1.png"
           />
         </div>
 
         <div class="carousel-item">
           <img
-            src="https://dongkrakusaha.com/gambarbebas/1526720260205-031540_kitchen set 2.png"
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-010843_partisi 1.png"
           />
         </div>
 
         <div class="carousel-item">
           <img
-            src="https://dongkrakusaha.com/gambarbebas/1526720260205-031540_kitchen set minimalis.png"
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-010843_partisi 3.png"
           />
         </div>
 
         <div class="carousel-item">
           <img
-            src="https://dongkrakusaha.com/gambarbebas/1526720260220-105602_kitchen set siku.png"
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-010843_partisi 2.png"
           />
         </div>
       </div>
