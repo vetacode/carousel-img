@@ -1,0 +1,256 @@
+<!doctype html>
+
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Carousel Interior 3 View</title>
+
+    <style>
+      .carousel-wrapper {
+        max-width: 1200px;
+        margin: 50px auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      .carousel-track {
+        display: flex;
+        transition: transform 0.6s ease-in-out;
+      }
+
+      .carousel-item {
+        flex: 0 0 33.3333%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .carousel-item img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        border-radius: 12px;
+        display: block;
+      }
+
+      .nav-btn {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 60px;
+        background: rgba(0, 0, 0, 0.35);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+        z-index: 2;
+      }
+
+      .nav-btn:hover {
+        background: rgba(0, 0, 0, 0.6);
+      }
+
+      .prev {
+        left: 0;
+        border-radius: 16px 0 0 16px;
+      }
+
+      .next {
+        right: 0;
+        border-radius: 0 16px 16px 0;
+      }
+
+      @media (max-width: 992px) {
+        .carousel-item {
+          flex: 0 0 50%;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .carousel-item {
+          flex: 0 0 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Telur Cerdas -->
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260223-120141_yolk telur cerdas.JPG"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260223-120141_yolk telur biasa.JPG"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-115836_selenium egg 2.JPG"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260223-121200_telur cerdas vs table eggs.png"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260223-120911_telur cerdas zoom 1.JPG"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260223-120911_telur cerdas face up 1.jpeg"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-115837_telur cerdas 2.JPG"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260223-120911_dus package.JPG"
+          />
+        </div>
+      </div>
+
+      <button class="nav-btn prev" onclick="moveSlide(-1)">❮</button>
+
+      <button class="nav-btn next" onclick="moveSlide(1)">❯</button>
+    </div>
+
+    <!-- Telur Selenium -->
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carouselTrack2">
+        <!-- copy item yang sama -->
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-115836_selenium egg 2.JPG"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-115836_selenium egg face up.png"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-115836_tc Face up product.png"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-115836_selenium egg 1.JPG"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-115836_Omega3 full.JPG"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-115837_telur cerdas 1.JPG"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260223-120911_dus package.JPG"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="https://dongkrakusaha.com/gambarbebas/1526720260222-115837_telur cerdas 2.JPG"
+          />
+        </div>
+      </div>
+
+      <button class="nav-btn prev" onclick="moveSlide2(-1)">❮</button>
+      <button class="nav-btn next" onclick="moveSlide2(1)">❯</button>
+    </div>
+    <script>
+      function getItemsPerView() {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 992) return 2;
+        return 3;
+      }
+
+      /* ===== CAROUSEL 1 (LEFT AUTO) ===== */
+      const track1 = document.getElementById('carouselTrack');
+      const items1 = track1.querySelectorAll('.carousel-item');
+      const totalItems1 = items1.length;
+      let index1 = 0;
+
+      function moveSlide(step) {
+        const itemsPerView = getItemsPerView();
+        const maxIndex = totalItems1 - itemsPerView;
+
+        index1 += step;
+
+        if (index1 < 0) index1 = maxIndex;
+        if (index1 > maxIndex) index1 = 0;
+
+        const translateX = (100 / itemsPerView) * index1;
+        track1.style.transform = `translateX(-${translateX}%)`;
+      }
+
+      /* ===== CAROUSEL 2 (RIGHT AUTO) ===== */
+      const track2 = document.getElementById('carouselTrack2');
+      const items2 = track2.querySelectorAll('.carousel-item');
+      const totalItems2 = items2.length;
+      let index2 = 0;
+
+      function moveSlide2(step) {
+        const itemsPerView = getItemsPerView();
+        const maxIndex = totalItems2 - itemsPerView;
+
+        index2 += step;
+
+        if (index2 < 0) index2 = maxIndex;
+        if (index2 > maxIndex) index2 = 0;
+
+        const translateX = (100 / itemsPerView) * index2;
+        track2.style.transform = `translateX(-${translateX}%)`;
+      }
+
+      window.addEventListener('resize', () => {
+        moveSlide(0);
+        moveSlide2(0);
+      });
+
+      /* AUTO SLIDE */
+      setInterval(() => {
+        moveSlide(1); // kiri
+      }, 5000);
+
+      setInterval(() => {
+        moveSlide2(-1); // kanan
+      }, 5000);
+    </script>
+  </body>
+</html>
